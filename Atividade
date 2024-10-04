@@ -1,0 +1,34 @@
+create database atv04_10_atv;
+
+create table empresa3 (
+	codfunc int auto_increment PRIMARY KEY not null,
+    nomefunc varchar(50) not null,
+    sexofunc varchar(1) not null,
+    bairrofunc varchar(50) not null,
+    salfunc decimal(10, 2) not null,
+    setorfunc varchar(20) not null
+);
+insert into empresa3(codfunc, nomefunc, sexofunc, bairrofunc, salfunc, setorfunc)
+	values
+    (1,"Julio Cesar","M", "Itapetininga", 8500.00, "Marketing"),
+    (2,"Rudrian Almeida","M", "Itapetininga", 300.00, "Pedreiro"),
+    (3,"Fellipe","M", "Itapetininga", 30.00, "Desempregado"),
+    (4,"Nicolle","M", "Itapetininga", 1000.00, "Caminhoneira"),
+    (5,"Adalto","M", "Sorocaba", 7000.00, "Professor"),
+    (6,"Adriano","M", "Sorocaba", 7000.00, "Professor"),
+    (7,"Fabio","M", "Jabaquara", 7000.00, "Professor"),
+    (8,"Vivian","F", "Jabaquara", 7500.00, "Professora"),
+    (9,"Deiviny","M", "Jabaquara", 5000.00, "Professor"),
+    (10,"Caio","M", "Sorocaba", 30000.00, "Investidor");
+    
+    select sum(salfunc) as soma_salario
+	from empresa3;
+    
+    select count(*) as total_funcionario
+    from empresa3
+    where setorfunc = 'Marketing';
+    
+    select setorfunc, avg(salfunc) as media_salarios
+	from empresa3
+	group by setorfunc
+	order by media_salarios desc;
